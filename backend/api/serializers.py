@@ -1,22 +1,20 @@
-import base64
-
-from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
-from rest_framework.relations import PrimaryKeyRelatedField
-
-from django.core.files.base import ContentFile
 from django.shortcuts import get_object_or_404
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from foodstuffs_assistant.models import Ingredient, Tag
 from recipes.models import Recipe, RecipeIngredient
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+from rest_framework.relations import PrimaryKeyRelatedField
 from users.models import User
+
+from .fields import Base64ImageField
 
 
 class IngredientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ingredient
-        fields = ('name', 'measurement_unit')
+        fields = ('id', 'name', 'measurement_unit')
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -56,10 +54,8 @@ class GetUserSerializer(UserSerializer):
 
     def get_is_subscribed(self, obj):
         user = self.context.get('request').user
-        if (not user.is_anonymous
-            and user.follower.filter(author=obj.id).exists()):
-            return True
-        return False
+        return (not user.is_anonymous
+                and user.follower.filter(author=obj.id).exists())
 
 
 class UserSerializer(UserCreateSerializer):
@@ -88,26 +84,13 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     def get_is_favorited(self, obj):
         user = self.context.get('request').user
-        if (not user.is_anonymous
-            and user.favorites.filter(recipe=obj.id).exists()):
-            return True
-        return False
+        return (not user.is_anonymous
+                and user.favorites.filter(recipe=obj.id).exists())
 
     def get_is_in_shopping_cart(self, obj):
         user = self.context.get('request').user
-        if (not user.is_anonymous
-            and user.added_to_cart.filter(recipe=obj.id).exists()):
-            return True
-        return False
-
-
-class Base64ImageField(serializers.ImageField):
-    def to_internal_value(self, data):
-        if isinstance(data, str) and data.startswith('data:image'):
-            format, imgstr = data.split(';base64,')
-            ext = format.split('/')[-1]
-            data = ContentFile(base64.b64decode(imgstr), name='temp.' + ext)
-        return super().to_internal_value(data)
+        return (not user.is_anonymous
+                and user.added_to_cart.filter(recipe=obj.id).exists())
 
 
 class PostRecipeSerializer(serializers.ModelSerializer):
@@ -122,12 +105,17 @@ class PostRecipeSerializer(serializers.ModelSerializer):
         model = Recipe
 
     def new_ingredients(self, curr_ingredients, curr_recipe):
-        for new_ingredient in curr_ingredients:
-            RecipeIngredient.objects.create(
+        ingredient_objs = [
+            RecipeIngredient(
                 recipe = curr_recipe,
                 ingredient = get_object_or_404(
                     Ingredient, id=new_ingredient.get('id')),
-                amount = new_ingredient.get('amount'))
+                amount = new_ingredient.get('amount')
+            )
+            for new_ingredient in curr_ingredients
+        ]
+        output = RecipeIngredient.objects.bulk_create(ingredient_objs)
+
 
     def create(self, validated_data):
         post_ingredients = validated_data.pop('ingredients')
@@ -155,11 +143,13 @@ class PostRecipeSerializer(serializers.ModelSerializer):
     def validate_ingredients(self, ingredients):
         if not ingredients:
             raise ValidationError('Нужно добавить хотя бы один ингредиент!')
-        ingredients_list = [item['id'] for item in ingredients]
-        for ingredient in ingredients_list:
-            if ingredients_list.count(ingredient) > 1:
+        ingred_list = [[item['id'], item['amount']] for item in ingredients]
+        print(ingred_list)
+        for ingredient in ingred_list:
+            print(ingredient)
+            if ingred_list.count(ingredient[0]) > 1:
                 raise ValidationError('Ингредиенты не могут повторяться!')
-            if int(ingredient['amount']) <= 0:
+            if int(ingredient[1]) <= 0:
                 raise ValidationError(
                     'Количество ингредиента должно быть больше 0!')
         return ingredients

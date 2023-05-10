@@ -9,6 +9,8 @@ class Ingredient(models.Model):
     )
 
     class Meta:
+        verbose_name = 'Ингредиент'
+        verbose_name_plural = 'Ингредиенты'
         ordering = ('id',)
 
     def __str__(self):
@@ -21,6 +23,8 @@ class Tag(models.Model):
     slug = models.SlugField(unique=True, verbose_name='Слаг')
 
     class Meta:
+        verbose_name = 'Тэг'
+        verbose_name_plural = 'Тэги'
         ordering = ('id',)
 
     def __str__(self):

@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+
 from foodstuffs_assistant.models import Ingredient, Tag
 from users.models import User
 
@@ -26,6 +27,8 @@ class Recipe(models.Model):
         validators=[MinValueValidator(1)], verbose_name='Время готовки')
 
     class Meta:
+        verbose_name = 'Рецепт'
+        verbose_name_plural = 'Рецепты'
         ordering = ('-id',)
 
     def __str__(self):
