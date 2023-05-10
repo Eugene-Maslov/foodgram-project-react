@@ -67,12 +67,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
             ).annotate(total_amount=Sum('amount'))
         shopping_list_text = 'Список покупок:\n\n'
         for item in shopping_list:
-            ingredient = item['ingredient__name']
-            measurement_unit = item['ingredient__measurement_unit']
-            amount = item['total_amount']
             shopping_list_text += (
-                f'{ingredient}: {amount} '
-                f'{measurement_unit}\n')
+                f"{item['ingredient__name']}: {item['total_amount']} "
+                f"{item['ingredient__measurement_unit']}\n")
         filename = f'{request.user.username}_shopping_cart.txt'
         response = HttpResponse(shopping_list_text, content_type='text/plain')
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
