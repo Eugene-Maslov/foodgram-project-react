@@ -2,12 +2,13 @@ from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from foodstuffs_assistant.models import Ingredient, Tag
-from recipes.models import Favorite, Recipe, RecipeIngredient, ShoppingCart
 from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+
+from foodstuffs_assistant.models import Ingredient, Tag
+from recipes.models import Favorite, Recipe, RecipeIngredient, ShoppingCart
 
 from .filters import RecipeFilter
 from .pagination import CustomPageNumberPagination
@@ -62,14 +63,16 @@ class RecipeViewSet(viewsets.ModelViewSet):
         shopping_cart = ShoppingCart.objects.filter(user=self.request.user)
         recipes = list(shopping_cart.values_list('recipe_id', flat=True))
         shopping_list = RecipeIngredient.objects.filter(recipe__in=recipes
-            ).values('ingredient').annotate(total_amount=Sum('amount'))
+            ).values('ingredient__name', 'ingredient__measurement_unit'
+            ).annotate(total_amount=Sum('amount'))
         shopping_list_text = 'Список покупок:\n\n'
         for item in shopping_list:
-            ingredient = Ingredient.objects.get(pk=item['ingredient'])
+            ingredient = item['ingredient__name']
+            measurement_unit = item['ingredient__measurement_unit']
             amount = item['total_amount']
             shopping_list_text += (
-                f'{ingredient.name}: {amount} '
-                f'{ingredient.measurement_unit}\n')
+                f'{ingredient}: {amount} '
+                f'{measurement_unit}\n')
         filename = f'{request.user.username}_shopping_cart.txt'
         response = HttpResponse(shopping_list_text, content_type='text/plain')
         response['Content-Disposition'] = f'attachment; filename="{filename}"'

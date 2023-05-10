@@ -1,10 +1,11 @@
 from django.shortcuts import get_object_or_404
 from djoser.serializers import UserCreateSerializer, UserSerializer
-from foodstuffs_assistant.models import Ingredient, Tag
-from recipes.models import Recipe, RecipeIngredient
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework.relations import PrimaryKeyRelatedField
+
+from foodstuffs_assistant.models import Ingredient, Tag
+from recipes.models import Recipe, RecipeIngredient
 from users.models import User
 
 from .fields import Base64ImageField
@@ -144,9 +145,7 @@ class PostRecipeSerializer(serializers.ModelSerializer):
         if not ingredients:
             raise ValidationError('Нужно добавить хотя бы один ингредиент!')
         ingred_list = [[item['id'], item['amount']] for item in ingredients]
-        print(ingred_list)
         for ingredient in ingred_list:
-            print(ingredient)
             if ingred_list.count(ingredient[0]) > 1:
                 raise ValidationError('Ингредиенты не могут повторяться!')
             if int(ingredient[1]) <= 0:
