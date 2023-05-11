@@ -9,7 +9,6 @@ from rest_framework.response import Response
 
 from foodstuffs_assistant.models import Ingredient, Tag
 from recipes.models import Favorite, Recipe, RecipeIngredient, ShoppingCart
-
 from .filters import RecipeFilter
 from .pagination import CustomPageNumberPagination
 from .permissions import IsAuthorOrAdminOrReadOnly
