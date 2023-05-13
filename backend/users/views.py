@@ -40,7 +40,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if request.method == 'POST':
             if not Follow.objects.filter(user=user, author=author).exists():
                 if user != author:
-                   # obj = Follow(user=user, author=author).save()
+                    # obj = Follow(user=user, author=author).save()
                     Follow(user=user, author=author).save()
                     serializer = UserSubscriptionSerializer
                     return Response(serializer(author).data,
