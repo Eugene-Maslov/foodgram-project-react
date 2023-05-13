@@ -2,12 +2,13 @@ from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
+from foodstuffs_assistant.models import Ingredient, Tag
+from recipes.models import Favorite, Recipe, RecipeIngredient, ShoppingCart
 from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from foodstuffs_assistant.models import Ingredient, Tag
-from recipes.models import Favorite, Recipe, RecipeIngredient, ShoppingCart
+
 from .filters import RecipeFilter
 from .pagination import CustomPageNumberPagination
 from .permissions import IsAuthorOrAdminOrReadOnly
@@ -79,7 +80,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         recipe = get_object_or_404(Recipe, pk=pk)
         if request.method == 'POST':
             if not table.objects.filter(user=user, recipe=recipe).exists():
-                #obj = table(user=user, recipe=recipe).save()
+                # obj = table(user=user, recipe=recipe).save()
                 table(user=user, recipe=recipe).save()
                 serializer = RecipeShortSerializer
                 return Response(serializer(recipe).data,

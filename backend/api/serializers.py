@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404
 from djoser.serializers import UserCreateSerializer, UserSerializer
+from foodstuffs_assistant.models import Ingredient, Tag
+from recipes.models import Recipe, RecipeIngredient
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework.relations import PrimaryKeyRelatedField
-from foodstuffs_assistant.models import Ingredient, Tag
-from recipes.models import Recipe, RecipeIngredient
 from users.models import User
 
 from .fields import Base64ImageField
@@ -114,7 +114,7 @@ class PostRecipeSerializer(serializers.ModelSerializer):
             )
             for new_ingredient in curr_ingredients
         ]
-        #output = RecipeIngredient.objects.bulk_create(ingredient_objs)
+        # output = RecipeIngredient.objects.bulk_create(ingredient_objs)
         RecipeIngredient.objects.bulk_create(ingredient_objs)
 
     def create(self, validated_data):

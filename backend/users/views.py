@@ -1,11 +1,11 @@
+from api.pagination import CustomPageNumberPagination
+from api.serializers import UserSerializer, UserSubscriptionSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
-from api.pagination import CustomPageNumberPagination
-from api.serializers import UserSerializer, UserSubscriptionSerializer
 from users.models import Follow, User
 
 
@@ -40,7 +40,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if request.method == 'POST':
             if not Follow.objects.filter(user=user, author=author).exists():
                 if user != author:
-                    #obj = Follow(user=user, author=author).save()
+                   # obj = Follow(user=user, author=author).save()
                     Follow(user=user, author=author).save()
                     serializer = UserSubscriptionSerializer
                     return Response(serializer(author).data,
