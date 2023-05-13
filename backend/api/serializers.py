@@ -3,7 +3,6 @@ from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework.relations import PrimaryKeyRelatedField
-
 from foodstuffs_assistant.models import Ingredient, Tag
 from recipes.models import Recipe, RecipeIngredient
 from users.models import User
@@ -108,15 +107,15 @@ class PostRecipeSerializer(serializers.ModelSerializer):
     def new_ingredients(self, curr_ingredients, curr_recipe):
         ingredient_objs = [
             RecipeIngredient(
-                recipe = curr_recipe,
-                ingredient = get_object_or_404(
+                recipe=curr_recipe,
+                ingredient=get_object_or_404(
                     Ingredient, id=new_ingredient.get('id')),
-                amount = new_ingredient.get('amount')
+                amount=new_ingredient.get('amount')
             )
             for new_ingredient in curr_ingredients
         ]
-        output = RecipeIngredient.objects.bulk_create(ingredient_objs)
-
+        #output = RecipeIngredient.objects.bulk_create(ingredient_objs)
+        RecipeIngredient.objects.bulk_create(ingredient_objs)
 
     def create(self, validated_data):
         post_ingredients = validated_data.pop('ingredients')

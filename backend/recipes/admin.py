@@ -13,7 +13,7 @@ class RecipeAdmin(admin.ModelAdmin):
     list_filter = ('author', 'name', 'tags')
     readonly_fields = ('count_favorite',)
     inlines = (RecipeIngredientInline,)
-    add_fieldsets = ((None, {'fields': ('count_favorite',),}),)
+    add_fieldsets = ((None, {'fields': ('count_favorite',), }),)
 
     def count_favorite(self, obj):
         return obj.favorites.count()
@@ -30,6 +30,7 @@ class FavoriteAdmin(admin.ModelAdmin):
 
 class ShoppingCartAdmin(admin.ModelAdmin):
     list_display = ('pk', 'user', 'recipe')
+
 
 admin.site.register(Favorite, FavoriteAdmin)
 admin.site.register(Recipe, RecipeAdmin)

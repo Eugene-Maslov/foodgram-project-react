@@ -7,4 +7,5 @@ class FollowAdmin(admin.ModelAdmin):
     list_display = ('pk', 'user', 'author')
     list_filter = ('user',)
 
+
 admin.site.register(Follow, FollowAdmin)

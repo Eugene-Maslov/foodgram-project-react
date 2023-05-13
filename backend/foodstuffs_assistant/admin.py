@@ -12,5 +12,6 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'slug')
     list_filter = ('name',)
 
+
 admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Tag, TagAdmin)

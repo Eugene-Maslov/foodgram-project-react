@@ -6,7 +6,6 @@ from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from foodstuffs_assistant.models import Ingredient, Tag
 from recipes.models import Favorite, Recipe, RecipeIngredient, ShoppingCart
 from .filters import RecipeFilter
@@ -61,9 +60,10 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_download_shopping_cart(self, request):
         shopping_cart = ShoppingCart.objects.filter(user=self.request.user)
         recipes = list(shopping_cart.values_list('recipe_id', flat=True))
-        shopping_list = RecipeIngredient.objects.filter(recipe__in=recipes
-            ).values('ingredient__name', 'ingredient__measurement_unit'
-            ).annotate(total_amount=Sum('amount'))
+        shopping_list = RecipeIngredient.objects.filter(
+            recipe__in=recipes).values(
+            'ingredient__name', 'ingredient__measurement_unit').annotate(
+            total_amount=Sum('amount'))
         shopping_list_text = 'Список покупок:\n\n'
         for item in shopping_list:
             shopping_list_text += (
@@ -78,8 +78,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
         user = request.user
         recipe = get_object_or_404(Recipe, pk=pk)
         if request.method == 'POST':
-            if not table.objects.filter(user=user,recipe=recipe).exists():
-                obj = table(user=user, recipe=recipe).save()
+            if not table.objects.filter(user=user, recipe=recipe).exists():
+                #obj = table(user=user, recipe=recipe).save()
+                table(user=user, recipe=recipe).save()
                 serializer = RecipeShortSerializer
                 return Response(serializer(recipe).data,
                                 status=status.HTTP_201_CREATED)
