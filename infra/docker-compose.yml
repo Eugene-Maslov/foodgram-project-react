@@ -8,8 +8,8 @@ services:
       - data_volume:/var/lib/postgresql/data/
     env_file:
       - ./.env
-    ports:
-      - "${DB_PORT:-5432}:5432"
+    # ports:
+    #   - "${DB_PORT:-5432}:5432"
 
   web:
     image: eugene24/foodgram_web:latest
@@ -38,7 +38,6 @@ services:
       - static_value:/var/html/static/
       - media_value:/var/html/media/
     depends_on:
-      - db
       - web
       - frontend
 
