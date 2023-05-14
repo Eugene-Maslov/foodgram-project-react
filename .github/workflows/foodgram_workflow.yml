@@ -62,8 +62,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            pwd
-            ls
             sudo docker-compose stop
             sudo docker-compose rm -f web frontend
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram_web

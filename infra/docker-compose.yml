@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
 
   db:
@@ -40,7 +41,7 @@ services:
       - web
       - frontend
 
- volumes:
+volumes:
    static_value:
    media_value:
    data_volume:
