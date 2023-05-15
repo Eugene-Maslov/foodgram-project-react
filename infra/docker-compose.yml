@@ -40,6 +40,6 @@ services:
       - frontend
 
 volumes:
-   static_value:
-   media_value:
-   data_volume:
+  static_value:
+  media_value:
+  data_volume:
