@@ -1,10 +1,10 @@
 from api.pagination import CustomPageNumberPagination
-from api.serializers import UserSerializer, UserSubscriptionSerializer
+from api.serializers import (GetUserSerializer, UserSerializer,
+                             UserSubscriptionSerializer)
 from django.shortcuts import get_object_or_404
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action
-from rest_framework.permissions import (IsAuthenticated,
-                                        IsAuthenticatedOrReadOnly)
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from users.models import Follow, User
 
@@ -12,10 +12,18 @@ from users.models import Follow, User
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
     filter_backends = (filters.SearchFilter,)
     pagination_class = CustomPageNumberPagination
     search_fields = ('username',)
+
+    @action(url_path='me',
+            methods=['get'],
+            detail=False,
+            permission_classes=(IsAuthenticated,)
+    )
+    def me(self, request):
+        serializer = GetUserSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(
         url_path='subscriptions',
