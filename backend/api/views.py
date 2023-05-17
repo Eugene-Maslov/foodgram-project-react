@@ -1,3 +1,5 @@
+import os.path
+
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
@@ -9,12 +11,13 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from .filters import RecipeFilter
+from .filters import IngredientSearchFilter, RecipeFilter
 from .pagination import CustomPageNumberPagination
 from .permissions import IsAuthorOrAdminOrReadOnly
 from .serializers import (IngredientSerializer, PostRecipeSerializer,
                           RecipeSerializer, RecipeShortSerializer,
                           TagSerializer)
+from foodgram.settings import MEDIA_ROOT
 
 
 class CustomViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
@@ -34,15 +37,24 @@ class TagViewSet(CustomViewSet):
 class IngredientViewSet(CustomViewSet):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
+    filter_backends = (IngredientSearchFilter,)
 
 
 class RecipeViewSet(viewsets.ModelViewSet):
-    queryset = Recipe.objects.all()
+    # queryset = Recipe.objects.all()
     permission_classes = (IsAuthorOrAdminOrReadOnly,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
     filterset_class = RecipeFilter
     pagination_class = CustomPageNumberPagination
     search_fields = ('name',)
+
+    def get_queryset(self):
+        user = self.request.user
+        if self.request.query_params.get('is_favorited'):
+            return Recipe.objects.filter(favorites__user=user)
+        if self.request.query_params.get('is_in_shopping_cart'):
+            return Recipe.objects.filter(added_to_cart__user=user)
+        return Recipe.objects.all()
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
@@ -51,6 +63,11 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+    def perform_destroy(self, instance):
+        image_path = os.path.join(MEDIA_ROOT, str(instance.image))
+        os.remove(image_path)
+        instance.delete()
 
     @action(
         url_path='download_shopping_cart',
