@@ -16,14 +16,14 @@ class UserViewSet(viewsets.ModelViewSet):
     pagination_class = CustomPageNumberPagination
     search_fields = ('username',)
 
-    @action(url_path='me',
-            methods=['get'],
-            detail=False,
-            permission_classes=(IsAuthenticated,)
-    )
-    def me(self, request):
-        serializer = GetUserSerializer(request.user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    # @action(url_path='me',
+    #         methods=['get'],
+    #         detail=False,
+    #         permission_classes=(IsAuthenticated,)
+    # )
+    # def me(self, request):
+    #     serializer = GetUserSerializer(request.user)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(
         url_path='subscriptions',
