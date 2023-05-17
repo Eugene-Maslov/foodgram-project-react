@@ -12,7 +12,7 @@ from users.models import Follow, User
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
     filter_backends = (filters.SearchFilter,)
     pagination_class = CustomPageNumberPagination
     search_fields = ('username',)
