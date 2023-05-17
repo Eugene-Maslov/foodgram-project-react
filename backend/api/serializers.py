@@ -58,7 +58,7 @@ class GetUserSerializer(UserSerializer):
                 and user.follower.filter(author=obj.id).exists())
 
 
-class UserSerializer(UserCreateSerializer):
+class CreateUserSerializer(UserCreateSerializer):
 
     class Meta:
         fields = ('id', 'email', 'username', 'first_name',
