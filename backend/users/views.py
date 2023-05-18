@@ -1,4 +1,5 @@
 from api.pagination import CustomPageNumberPagination
+from api.permissions import IsAdminOrReadOnly
 from api.serializers import GetUserSerializer, UserSubscriptionSerializer
 from django.shortcuts import get_object_or_404
 from djoser.views import UserViewSet
@@ -14,6 +15,7 @@ class CustomUserViewSet(UserViewSet):
     serializer_class = GetUserSerializer
     filter_backends = (filters.SearchFilter,)
     pagination_class = CustomPageNumberPagination
+    permission_classes = (IsAdminOrReadOnly,)
     search_fields = ('username',)
 
     @action(

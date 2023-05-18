@@ -13,7 +13,7 @@ from rest_framework.response import Response
 
 from .filters import IngredientSearchFilter, RecipeFilter
 from .pagination import CustomPageNumberPagination
-from .permissions import IsAuthorOrAdminOrReadOnly
+from .permissions import IsAdminOrReadOnly, IsAuthorOrAdminOrReadOnly
 from .serializers import (IngredientSerializer, PostRecipeSerializer,
                           RecipeSerializer, RecipeShortSerializer,
                           TagSerializer)
@@ -24,7 +24,7 @@ class CustomViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
                     mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
                     mixins.DestroyModelMixin, viewsets.GenericViewSet):
     pagination_class = None
-    permission_classes = (IsAuthorOrAdminOrReadOnly,)
+    permission_classes = (IsAdminOrReadOnly,)
     filter_backends = (filters.SearchFilter,)
     search_fields = ('name',)
 
@@ -41,8 +41,7 @@ class IngredientViewSet(CustomViewSet):
 
 
 class RecipeViewSet(viewsets.ModelViewSet):
-    # queryset = Recipe.objects.all()
-    permission_classes = (IsAuthorOrAdminOrReadOnly,)
+    permission_classes = (IsAdminOrReadOnly,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
     filterset_class = RecipeFilter
     pagination_class = CustomPageNumberPagination

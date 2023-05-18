@@ -67,7 +67,7 @@ class CreateUserSerializer(UserCreateSerializer):
 
 
 class RecipeSerializer(serializers.ModelSerializer):
-    ingredient = RecipeIngredientSeriaizer(
+    ingredients = RecipeIngredientSeriaizer(
         many=True,
         read_only=True,
         source='recipeingredients')
@@ -78,7 +78,7 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
         fields = ('id', 'author', 'name', 'image', 'text',
-                  'ingredient', 'tags', 'cooking_time',
+                  'ingredients', 'tags', 'cooking_time',
                   'is_favorited', 'is_in_shopping_cart')
         model = Recipe
 
