@@ -17549,18 +17549,198 @@
     }
 },
 {
+    "model": "recipes.recipeingredient",
+    "pk": 19,
+    "fields": {
+        "recipe": 35,
+        "ingredient": 2183,
+        "amount": 200
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 20,
+    "fields": {
+        "recipe": 35,
+        "ingredient": 1421,
+        "amount": 5
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 21,
+    "fields": {
+        "recipe": 35,
+        "ingredient": 1688,
+        "amount": 3
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 22,
+    "fields": {
+        "recipe": 35,
+        "ingredient": 1995,
+        "amount": 100
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 23,
+    "fields": {
+        "recipe": 36,
+        "ingredient": 1098,
+        "amount": 200
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 24,
+    "fields": {
+        "recipe": 36,
+        "ingredient": 1032,
+        "amount": 200
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 25,
+    "fields": {
+        "recipe": 37,
+        "ingredient": 2160,
+        "amount": 500
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 26,
+    "fields": {
+        "recipe": 38,
+        "ingredient": 2024,
+        "amount": 1
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 27,
+    "fields": {
+        "recipe": 39,
+        "ingredient": 1617,
+        "amount": 750
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 28,
+    "fields": {
+        "recipe": 39,
+        "ingredient": 855,
+        "amount": 100
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 29,
+    "fields": {
+        "recipe": 39,
+        "ingredient": 1687,
+        "amount": 5
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 30,
+    "fields": {
+        "recipe": 39,
+        "ingredient": 1420,
+        "amount": 30
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 31,
+    "fields": {
+        "recipe": 40,
+        "ingredient": 1229,
+        "amount": 500
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 32,
+    "fields": {
+        "recipe": 40,
+        "ingredient": 816,
+        "amount": 2
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 33,
+    "fields": {
+        "recipe": 40,
+        "ingredient": 1685,
+        "amount": 5
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 34,
+    "fields": {
+        "recipe": 41,
+        "ingredient": 506,
+        "amount": 500
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 35,
+    "fields": {
+        "recipe": 41,
+        "ingredient": 730,
+        "amount": 300
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 36,
+    "fields": {
+        "recipe": 41,
+        "ingredient": 707,
+        "amount": 300
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 37,
+    "fields": {
+        "recipe": 41,
+        "ingredient": 452,
+        "amount": 150
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 38,
+    "fields": {
+        "recipe": 41,
+        "ingredient": 901,
+        "amount": 200
+    }
+},
+{
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$260000$s4JoexMQ5Actzj4qPzUulT$eVJWJvNEeo2QHYZnJwJCjI3SDspYFOWcbtsYnsbjkKk=",
-        "last_login": "2023-05-16T17:00:39.501Z",
+        "last_login": "2023-05-17T11:54:13Z",
         "is_superuser": true,
         "username": "admin",
-        "first_name": "",
-        "last_name": "",
+        "first_name": "Админ",
+        "last_name": "Иванович",
         "email": "admin@foodgram.ru",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2023-04-26T10:02:38.927Z",
+        "date_joined": "2023-04-26T10:02:38Z",
         "groups": [],
         "user_permissions": []
     }
@@ -17569,11 +17749,11 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$260000$Ls2a09rxmPuslENxM2a09A$VsouoKgZnRiAEpGYDuhjfO6Z6IMRwOOiBnH+SpU3wVM=",
-        "last_login": "2023-05-02T09:14:11Z",
+        "last_login": "2023-05-17T11:45:37Z",
         "is_superuser": false,
         "username": "user1",
-        "first_name": "",
-        "last_name": "",
+        "first_name": "Юзер",
+        "last_name": "Петрович",
         "email": "user1@foodgram.ru",
         "is_staff": false,
         "is_active": true,
@@ -17589,8 +17769,8 @@
         "last_login": null,
         "is_superuser": false,
         "username": "user2",
-        "first_name": "",
-        "last_name": "",
+        "first_name": "Юзер",
+        "last_name": "Юрьевич",
         "email": "user2@foodgram.ru",
         "is_staff": false,
         "is_active": true,
@@ -17606,12 +17786,12 @@
         "last_login": null,
         "is_superuser": false,
         "username": "vasya.pupkin",
-        "first_name": "",
-        "last_name": "",
+        "first_name": "Вася",
+        "last_name": "Пупкин",
         "email": "vpupkin@yandex.ru",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2023-05-03T15:01:52.325Z",
+        "date_joined": "2023-05-03T15:01:52Z",
         "groups": [],
         "user_permissions": []
     }
@@ -17635,10 +17815,10 @@
 },
 {
     "model": "sessions.session",
-    "pk": "62apkp19zmskhes02nrx2v2ju7klfi54",
+    "pk": "907e6gnx2pcd06w0fdiiwrggfamsc49k",
     "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGlnEf1PS5wzWeneDA8iW4qRC3B0ipYB2Zt57iQTbWtLWeUkziYsYxOmXZcAH113QHeqtSWx1XeYs90QetsuxET-vR_t3UKCX7xpstF57Y2EiQoOGlHLnqL1C8kw4TBjIaWajYoYQtbODMYi804BOvD_qhTgZ:1pyy2R:Va3jWoDmBJ43L4w-axbGAnCdZRQhzvEJOi03jQ8ub8g",
-        "expire_date": "2023-05-30T17:00:39.503Z"
+        "session_data": ".eJxVjDsOwjAQBe_iGlnEf1PS5wzWeneDA8iW4qRC3B0ipYB2Zt57iQTbWtLWeUkziYsYxOmXZcAH113QHeqtSWx1XeYs90QetsuxET-vR_t3UKCX7xpstF57Y2EiQoOGlHLnqL1C8kw4TBjIaWajYoYQtbODMYi804BOvD_qhTgZ:1pzFjR:n2-bnorJQzo5SMutDiX65mVbKNwPJLZwRYYv5quzlmU",
+        "expire_date": "2023-05-31T11:54:13.270Z"
     }
 },
 {
@@ -18884,6 +19064,204 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2023-05-19T11:34:04.172Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "1",
+        "object_repr": "admin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2023-05-19T11:34:18.901Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "4",
+        "object_repr": "vasya.pupkin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2023-05-19T11:34:33.230Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "2",
+        "object_repr": "user1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2023-05-19T11:34:51.722Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "3",
+        "object_repr": "user2",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2023-05-19T11:44:37.414Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "35",
+        "object_repr": "Make яичница great again!",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (19)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (20)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (21)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (22)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2023-05-19T11:49:10.324Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "36",
+        "object_repr": "Мюсли с молоком",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (23)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (24)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2023-05-19T11:54:45.673Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "37",
+        "object_repr": "Каре ягнёнка",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (25)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2023-05-19T11:58:20.921Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "38",
+        "object_repr": "Цыплёнок тапака",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (26)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2023-05-19T12:03:40.887Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "39",
+        "object_repr": "Стейк сёмги в духовке",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (27)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (28)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (29)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (30)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2023-05-19T12:05:55.033Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "40",
+        "object_repr": "Пельмени",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (31)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (32)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (33)\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2023-05-19T12:12:14.533Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "41",
+        "object_repr": "Салат царский",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (34)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (35)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (36)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (37)\"}}, {\"added\": {\"name\": \"\\u0420\\u0435\\u0446\\u0435\\u043f\\u0442 - \\u0438\\u043d\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043d\\u0442\", \"object\": \"RecipeIngredient object (38)\"}}]"
+    }
+},
+{
     "model": "users.follow",
     "pk": 2,
     "fields": {
@@ -18940,6 +19318,124 @@
         "cooking_time": 20,
         "tags": [
             2
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 35,
+    "fields": {
+        "author": [
+            "admin"
+        ],
+        "name": "Make яичница great again!",
+        "image": "recipes/images/eggs_POMcfax.jpg",
+        "text": "Жарить!",
+        "cooking_time": 3,
+        "tags": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 36,
+    "fields": {
+        "author": [
+            "user1"
+        ],
+        "name": "Мюсли с молоком",
+        "image": "recipes/images/musli_vIOiJf8.jpg",
+        "text": "Быстро и полезно.",
+        "cooking_time": 1,
+        "tags": [
+            1
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 37,
+    "fields": {
+        "author": [
+            "user2"
+        ],
+        "name": "Каре ягнёнка",
+        "image": "recipes/images/kare_pVpCZbV.jpg",
+        "text": "Без комментариев.",
+        "cooking_time": 20,
+        "tags": [
+            3
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 38,
+    "fields": {
+        "author": [
+            "user2"
+        ],
+        "name": "Цыплёнок тапака",
+        "image": "recipes/images/chicken_89RsGkI.jpg",
+        "text": "Жарить.",
+        "cooking_time": 15,
+        "tags": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 39,
+    "fields": {
+        "author": [
+            "user2"
+        ],
+        "name": "Стейк сёмги в духовке",
+        "image": "recipes/images/salmon_sqbXz68.jpg",
+        "text": "Просто, вкусно, полезно!",
+        "cooking_time": 45,
+        "tags": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 40,
+    "fields": {
+        "author": [
+            "user2"
+        ],
+        "name": "Пельмени",
+        "image": "recipes/images/dumplings_FNaE7en.jpg",
+        "text": "Варить.",
+        "cooking_time": 12,
+        "tags": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 41,
+    "fields": {
+        "author": [
+            "user2"
+        ],
+        "name": "Салат царский",
+        "image": "recipes/images/salad_zfQ5KOW.jpg",
+        "text": "Всё сварить, нарезать, смешать.",
+        "cooking_time": 25,
+        "tags": [
+            1,
+            2,
+            3
         ]
     }
 }

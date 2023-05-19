@@ -166,7 +166,7 @@ class RecipeShortSerializer(serializers.ModelSerializer):
 
 
 class UserSubscriptionSerializer(serializers.ModelSerializer):
-    recipes = RecipeShortSerializer(many=True)
+    recipes = RecipeShortSerializer(many=True, read_only=True)
     is_subscribed = serializers.SerializerMethodField()
     recipes_count = serializers.SerializerMethodField()
 

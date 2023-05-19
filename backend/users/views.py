@@ -25,7 +25,9 @@ class CustomUserViewSet(UserViewSet):
         permission_classes=(IsAuthenticated,)
     )
     def get_subscriptions(self, request):
-        my_subs = User.objects.filter(following__user=request.user)
+        # my_subs = User.objects.filter(following__user=request.user)
+        # my_subs = User.objects.filter(author__user=self.request.user)
+        my_subs = User.objects.filter(author__user=request.user)
         return Response(UserSubscriptionSerializer(my_subs, many=True).data,
                         status=status.HTTP_200_OK)
 
