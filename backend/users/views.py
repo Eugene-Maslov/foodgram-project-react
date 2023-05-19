@@ -35,9 +35,9 @@ class CustomUserViewSet(UserViewSet):
         detail=True,
         permission_classes=(IsAuthenticated,)
     )
-    def get_subscribe(self, request, pk):
+    def get_subscribe(self, request, id):
         user = request.user
-        author = get_object_or_404(User, pk=pk)
+        author = get_object_or_404(User, pk=id)
         if request.method == 'POST':
             if not Follow.objects.filter(user=user, author=author).exists():
                 if user != author:
