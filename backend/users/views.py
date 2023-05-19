@@ -23,11 +23,16 @@ class CustomUserViewSet(UserViewSet):
         permission_classes=(IsAuthenticated,)
     )
     def get_subscriptions(self, request):
+        limit = self.request.query_params.get('recipes_limit')
         my_subs = User.objects.filter(
             following__user=request.user).order_by('id')
         pages = self.paginate_queryset(my_subs)
-        return self.get_paginated_response(
-            UserSubscriptionSerializer(pages, many=True).data)
+        serializer = UserSubscriptionSerializer(pages, many=True)
+        if limit:
+            for user in serializer.data:
+                if user.get('recipes'):
+                    user['recipes'] = user.get('recipes')[:int(limit)]
+        return self.get_paginated_response(serializer.data)
 
     @action(
         url_path='subscribe',
