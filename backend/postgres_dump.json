@@ -19307,6 +19307,42 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2023-05-19T18:17:13.889Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "users",
+            "follow"
+        ],
+        "object_id": "4",
+        "object_repr": "Follow object (4)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2023-05-19T18:41:20.142Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "users",
+            "follow"
+        ],
+        "object_id": "5",
+        "object_repr": "Follow object (5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
     "model": "users.follow",
     "pk": 2,
     "fields": {
@@ -19324,6 +19360,18 @@
     "fields": {
         "user": [
             "user2"
+        ],
+        "author": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "users.follow",
+    "pk": 5,
+    "fields": {
+        "user": [
+            "user1"
         ],
         "author": [
             "admin"
