@@ -114,7 +114,6 @@ class PostRecipeSerializer(serializers.ModelSerializer):
             )
             for new_ingredient in curr_ingredients
         ]
-        # output = RecipeIngredient.objects.bulk_create(ingredient_objs)
         RecipeIngredient.objects.bulk_create(ingredient_objs)
 
     def create(self, validated_data):

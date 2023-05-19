@@ -13,10 +13,8 @@ from users.models import Follow, User
 class CustomUserViewSet(UserViewSet):
     queryset = User.objects.all()
     serializer_class = GetUserSerializer
-    filter_backends = (filters.SearchFilter,)
-    pagination_class = CustomPageNumberPagination
     permission_classes = (IsAdminOrReadOnly,)
-    search_fields = ('username',)
+    pagination_class = CustomPageNumberPagination
 
     @action(
         url_path='subscriptions',
@@ -25,9 +23,11 @@ class CustomUserViewSet(UserViewSet):
         permission_classes=(IsAuthenticated,)
     )
     def get_subscriptions(self, request):
-        my_subs = User.objects.filter(following__user=request.user)
-        return Response(UserSubscriptionSerializer(my_subs, many=True).data,
-                        status=status.HTTP_200_OK)
+        my_subs = User.objects.filter(
+            following__user=request.user).order_by('id')
+        pages = self.paginate_queryset(my_subs)
+        return self.get_paginated_response(
+            UserSubscriptionSerializer(pages, many=True).data)
 
     @action(
         url_path='subscribe',

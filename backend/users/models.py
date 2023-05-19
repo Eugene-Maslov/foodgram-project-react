@@ -20,6 +20,7 @@ class Follow(models.Model):
 
     class Meta:
         verbose_name_plural = 'Подписки на авторов'
+        ordering = ['user']
         constraints = [
             models.UniqueConstraint(
                 fields=['user', 'author'],

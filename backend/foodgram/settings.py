@@ -119,12 +119,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DJOSER = {
     'LOGIN_FIELD': 'email',
-    'HIDE_USER': False,
+    'HIDE_USERS': False,
     'SERIALIZERS': {
         'user': 'api.serializers.GetUserSerializer',
         'user_create': 'api.serializers.CreateUserSerializer',
         'current_user': 'api.serializers.GetUserSerializer',
-    }
+    },
+    'PERMISSIONS': {
+        'user': ['rest_framework.permissions.AllowAny'],
+        'user_list': ['rest_framework.permissions.AllowAny'],
+    },
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
