@@ -41,7 +41,7 @@ class IngredientViewSet(CustomViewSet):
 
 
 class RecipeViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = (IsAuthorOrAdminOrReadOnly,)
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
     filterset_class = RecipeFilter
     pagination_class = CustomPageNumberPagination
@@ -96,7 +96,6 @@ class RecipeViewSet(viewsets.ModelViewSet):
         recipe = get_object_or_404(Recipe, pk=pk)
         if request.method == 'POST':
             if not table.objects.filter(user=user, recipe=recipe).exists():
-                # obj = table(user=user, recipe=recipe).save()
                 table(user=user, recipe=recipe).save()
                 serializer = RecipeShortSerializer
                 return Response(serializer(recipe).data,

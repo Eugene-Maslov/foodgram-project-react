@@ -25,9 +25,7 @@ class CustomUserViewSet(UserViewSet):
         permission_classes=(IsAuthenticated,)
     )
     def get_subscriptions(self, request):
-        # my_subs = User.objects.filter(following__user=request.user)
-        # my_subs = User.objects.filter(author__user=self.request.user)
-        my_subs = User.objects.filter(author__user=request.user)
+        my_subs = User.objects.filter(following__user=request.user)
         return Response(UserSubscriptionSerializer(my_subs, many=True).data,
                         status=status.HTTP_200_OK)
 
@@ -43,7 +41,6 @@ class CustomUserViewSet(UserViewSet):
         if request.method == 'POST':
             if not Follow.objects.filter(user=user, author=author).exists():
                 if user != author:
-                    # obj = Follow(user=user, author=author).save()
                     Follow(user=user, author=author).save()
                     serializer = UserSubscriptionSerializer
                     return Response(serializer(author).data,
