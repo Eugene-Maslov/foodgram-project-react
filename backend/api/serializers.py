@@ -144,7 +144,7 @@ class PostRecipeSerializer(serializers.ModelSerializer):
             raise ValidationError('Нужно добавить хотя бы один ингредиент!')
         ingred_list = [[item['id'], item['amount']] for item in ingredients]
         for ingredient in ingred_list:
-            if ingred_list.count(ingredient[0]) > 1:
+            if list(map(list, zip(*ingred_list)))[0].count(ingredient[0]) > 1:
                 raise ValidationError('Ингредиенты не могут повторяться!')
             if int(ingredient[1]) <= 0:
                 raise ValidationError(

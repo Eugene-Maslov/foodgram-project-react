@@ -83,11 +83,15 @@ $ git push
 
 ### Работа с проектом: 
 - Чтобы создать дамп базы:
+
 `$ sudo docker-compose exec -T web python manage.py dumpdata > postgres_dump.json`
+
 - Чтобы остановить все контейнеры:
 `$ sudo docker-compose down`
 - Чтобы остановить все контейнеры и удалить все зависимости и сети (без образов):
+
 `$ sudo docker-compose down -v`
+
 - Мониторинг запущенных контейнеров:
 `$ sudo docker stats`
 - Удалить всё, что не используется:
