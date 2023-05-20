@@ -19343,6 +19343,186 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.434Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "52",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.437Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "51",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.440Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "50",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.445Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "49",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.449Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "48",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.458Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "47",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.461Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "46",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.464Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "45",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.466Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "44",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2023-05-20T16:50:21.468Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "recipes",
+            "recipe"
+        ],
+        "object_id": "43",
+        "object_repr": "string",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
     "model": "users.follow",
     "pk": 2,
     "fields": {
