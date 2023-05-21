@@ -1,6 +1,8 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+
 from foodstuffs_assistant.models import Ingredient, Tag
+
 from users.models import User
 
 
