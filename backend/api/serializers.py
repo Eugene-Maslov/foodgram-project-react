@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from foodstuffs_assistant.models import Ingredient, Tag
 from rest_framework import serializers
@@ -8,7 +7,6 @@ from rest_framework.relations import PrimaryKeyRelatedField
 
 from recipes.models import Recipe, RecipeIngredient
 from users.models import User
-
 from .fields import Base64ImageField
 
 
